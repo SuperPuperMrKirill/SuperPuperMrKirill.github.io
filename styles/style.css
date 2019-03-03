@@ -1,0 +1,255 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background: orange;
+  font-family: sans-serif;
+  font-size: 16px; }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px; }
+
+header {
+  background: #555;
+  position: sticky;
+  top: 0;
+  margin-bottom: 10px;
+  text-transform: uppercase; }
+  header .container {
+    padding-left: 0; }
+  header .content {
+    display: flex; }
+    header .content nav {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      width: 100%; }
+      header .content nav .menu-toggle {
+        height: 40px;
+        width: 170px;
+        cursor: pointer;
+        display: none;
+        flex-direction: row; }
+        header .content nav .menu-toggle i {
+          display: block;
+          margin-right: 5px;
+          width: 20px;
+          line-height: 36px;
+          text-align: center;
+          color: orange;
+          padding-left: 10px; }
+        header .content nav .menu-toggle span {
+          font-size: 16px;
+          color: orange;
+          line-height: 40px; }
+      header .content nav ul {
+        display: flex;
+        background: #555; }
+        header .content nav ul a {
+          height: 40px;
+          box-sizing: border-box;
+          padding: 0 10px;
+          text-decoration: none;
+          color: orange;
+          display: flex;
+          flex-direction: row; }
+          header .content nav ul a li {
+            line-height: 40px;
+            font-size: 16px;
+            top: 0; }
+          header .content nav ul a i {
+            display: none;
+            line-height: 36px;
+            text-align: center; }
+          @media (min-width: 450px) {
+            header .content nav ul a:hover {
+              border-bottom: 2px solid white;
+              transition: 0.25s; }
+              header .content nav ul a:hover li {
+                position: relative;
+                top: -2px;
+                transition: top 0.25s; } }
+    header .content .header-search {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center; }
+      header .content .header-search input {
+        height: 22px;
+        border: none;
+        border-radius: 2px 0 0 2px;
+        padding: 0 10px; }
+      header .content .header-search button {
+        height: 22px;
+        border: none;
+        border-radius: 0 2px 2px 0; }
+
+.container .off-header-search {
+  height: 40px;
+  display: none;
+  flex-wrap: nowrap;
+  align-items: center; }
+  .container .off-header-search input {
+    height: 22px;
+    width: 100%;
+    border-radius: 2px 0 0 2px;
+    padding: 0 10px;
+    border: none; }
+  .container .off-header-search button {
+    height: 22px;
+    border-radius: 0 2px 2px 0;
+    border: none; }
+
+@media (max-width: 550px) {
+  header {
+    margin: 0 !important; }
+
+  .header-search {
+    display: none !important; }
+
+  .off-header-search {
+    display: flex !important; } }
+@media (max-width: 450px) {
+  header .content nav {
+    flex-direction: column; }
+    header .content nav .menu-toggle {
+      display: flex; }
+      header .content nav .menu-toggle:hover {
+        border-left: 2px solid white;
+        transition: 0.25s; }
+        header .content nav .menu-toggle:hover span, header .content nav .menu-toggle:hover i {
+          position: relative;
+          left: 2px;
+          transition: left 0.25s; }
+    header .content nav ul {
+      display: none;
+      position: absolute;
+      top: 40px;
+      flex-direction: column; }
+      header .content nav ul a {
+        width: 170px; }
+        header .content nav ul a i {
+          display: inline;
+          padding-right: 5px;
+          width: 20px; }
+        header .content nav ul a:hover {
+          border-left: 2px solid white;
+          transition: 0.25s; }
+          header .content nav ul a:hover li, header .content nav ul a:hover i {
+            position: relative;
+            left: 2px;
+            transition: left 0.25s; } }
+#add_card {
+  width: 100%; }
+  #add_card .toptab .tab div {
+    box-shadow: 0 0 3px #555;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 4px 4px 0 0;
+    color: orange;
+    padding: 6px 5px 2px;
+    background: #555; }
+  #add_card .toptab .tab::after {
+    content: "";
+    height: 100%;
+    width: 10px; }
+  #add_card .add_form {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 0 4px 4px 4px;
+    background: #555;
+    box-shadow: 0 0 3px #555; }
+    #add_card .add_form form {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 2px; }
+      #add_card .add_form form .left_content {
+        box-sizing: border-box;
+        width: 30%; }
+        #add_card .add_form form .left_content textarea {
+          margin: 0;
+          resize: none;
+          font-size: inherit;
+          font-family: inherit;
+          box-sizing: border-box;
+          padding: 10px;
+          border: 0;
+          width: 100%;
+          height: 150px;
+          border-radius: 4px 0 0 4px; }
+      #add_card .add_form form .right_content {
+        box-sizing: border-box;
+        width: 70%; }
+        #add_card .add_form form .right_content textarea {
+          margin: 0;
+          resize: none;
+          font-size: inherit;
+          font-family: inherit;
+          box-sizing: border-box;
+          padding: 10px;
+          border: 0;
+          width: 100%;
+          height: 150px;
+          background: whitesmoke;
+          border-radius: 0 4px 4px 0; }
+
+@media (max-width: 550px) {
+  .add_form form {
+    flex-direction: column; }
+    .add_form form .left_content {
+      width: 100% !important; }
+      .add_form form .left_content textarea {
+        height: 60px !important;
+        border-radius: 4px 4px 0 0 !important; }
+    .add_form form .right_content {
+      width: 100% !important; }
+      .add_form form .right_content textarea {
+        border-radius: 0 0 4px 4px !important; } }
+
+/*# sourceMappingURL=style.css.map */

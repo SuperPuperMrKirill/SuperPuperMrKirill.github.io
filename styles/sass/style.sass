@@ -1,0 +1,277 @@
+@import 'reset'
+// Basic measures 
+$container-width: 800px
+$header_height: 40px  
+// Media meausres 
+$media_toggle_search: 550px
+$media_toggle_menubar: 450px
+//Colors
+$bg_color: orange
+$header_color: #555
+$light_grey: rgb(245,245,245)
+
+body 
+	background: $bg_color
+	font-family: sans-serif
+	font-size: 16px
+
+.container
+	max-width: $container-width
+	margin: 0 auto
+	padding: 0 10px
+
+header
+	background: $header_color
+	position: sticky
+	top: 0
+	margin-bottom: 10px
+	text-transform: uppercase
+
+	.container
+		padding-left: 0
+	.content
+		display: flex 
+
+		nav
+			flex-grow: 1
+			display: flex
+			flex-direction: row
+			width: 100%
+
+			.menu-toggle
+				height: $header_height
+				width: 170px
+				cursor: pointer
+				display: none
+				flex-direction: row
+
+				i
+					display: block
+					margin-right: 5px
+					width: 20px
+					line-height: $header_height - 4px	
+					text-align: center
+					color: $bg_color
+					padding-left: 10px
+
+				span 
+					font-size: 16px
+					color: $bg_color
+					line-height: $header_height	
+
+			ul
+				display: flex
+				background: $header_color
+				
+
+				a
+					height: $header_height
+					box-sizing: border-box 
+					padding: 0 10px
+					text-decoration: none
+					color: $bg_color
+					display: flex
+					flex-direction: row
+					li				
+						line-height: $header_height	
+						font-size: 16px
+						top: 0		
+					i		
+						display: none	
+						line-height: $header_height - 4px	
+						text-align: center
+					
+					@media (min-width: $media_toggle_menubar)
+						&:hover
+							border-bottom: 2px solid white
+							transition: 0.25s
+							li
+								position: relative 
+								top: -2px
+								transition: top 0.25s
+		
+
+		.header-search
+			display: flex
+			flex-wrap: nowrap 
+			align-items: center
+			// flex-grow: 1
+			input
+				height: 22px
+				border: none
+				border-radius: 2px 0 0 2px
+				padding: 0 10px
+
+			button
+				height: 22px
+				border: none 
+				border-radius: 0 2px 2px 0
+				.fas
+										
+.container
+	.off-header-search
+		height: 40px 
+		display: none
+		flex-wrap: nowrap
+		align-items: center
+
+		input
+			height: 22px
+			width: 100%
+			border-radius: 2px 0 0 2px
+			padding: 0 10px
+			border: none
+
+		button
+			height: 22px
+			border-radius: 0 2px 2px 0
+			border: none
+			.fas
+
+@media (max-width: 550px)
+	header
+		margin: 0 !important
+	.header-search 
+		display: none !important
+	.off-header-search
+		display: flex !important
+
+@media (max-width: $media_toggle_menubar)
+	header
+		.content 
+			nav 
+				flex-direction: column
+
+				.menu-toggle
+					display: flex 
+
+					&:hover
+						border-left: 2px solid white
+						transition: 0.25s
+						span, i
+							position: relative 
+							left: 2px
+							transition: left 0.25s
+				ul 
+					display: none
+					position: absolute
+					top: 40px
+					flex-direction: column
+					a
+						width: 170px
+						li
+						i
+							display: inline
+							padding-right: 5px
+							width: 20px
+
+						&:hover
+							border-left: 2px solid white
+							transition: 0.25s
+							li,i 
+								position: relative 
+								left: 2px
+								transition: left 0.25s
+
+$card_radius: 4px
+#add_card 	
+	width: 100%
+	.toptab
+		.tab
+
+			div
+				box-shadow: 0 0 3px $header_color
+				text-transform: uppercase
+				font-size: 11px
+				font-weight: bold
+
+				display: inline-block
+				// text-align: center
+				box-sizing: border-box
+				border-radius: $card_radius $card_radius 0 0 
+				color: $bg_color
+				padding: 6px 5px 2px
+				background: $header_color
+
+			// &:before
+			// 	position: absolute
+			// 	left: 12px
+			// 	content: ''
+			// 	width: 0
+			// 	height: 0
+			// 	border-style: solid
+			// 	border-width: 0 0 22px 3px
+			// 	border-color: transparent transparent $header_color transparent
+			&::after 
+				content: ''
+				height: 100%
+				width: 10px 
+
+		// .line
+		// 	height: 0
+		// 	border: 1px solid $header_color
+
+	.add_form
+		width: 100%
+		margin-bottom: 10px
+		border-radius: 0 $card_radius $card_radius $card_radius 
+		background: $header_color
+		box-shadow: 0 0 3px $header_color
+
+		form 
+			width: 100%
+			display: flex 
+			justify-content: space-between
+			box-sizing: border-box
+			padding: 2px
+			
+			
+			.left_content
+				box-sizing: border-box
+				width: 30%
+				
+
+				textarea
+					margin: 0
+					resize: none
+					font-size: inherit
+					font-family: inherit
+					box-sizing: border-box
+					padding: 10px
+					border: 0 
+					width: 100%
+					height: 150px	
+					border-radius: $card_radius 0 0 $card_radius					
+
+			.right_content
+				box-sizing: border-box
+				width: 70%
+
+				textarea
+					margin: 0
+					resize: none
+					font-size: inherit
+					font-family: inherit
+					box-sizing: border-box
+					padding: 10px
+					border: 0
+					width: 100%
+					height: 150px
+					background: $light_grey
+					border-radius: 0 $card_radius $card_radius 0
+
+@media (max-width: $media_toggle_search)
+	.add_form 
+		form
+			flex-direction: column
+			.left_content
+				width: 100% !important
+
+				textarea
+					height: 60px !important
+					border-radius: $card_radius $card_radius 0 0 !important
+			.right_content
+				width: 100% !important
+			
+				textarea
+					border-radius: 0 0 $card_radius $card_radius !important
